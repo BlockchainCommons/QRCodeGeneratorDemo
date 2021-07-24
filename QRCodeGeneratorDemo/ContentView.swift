@@ -157,14 +157,14 @@ struct ContentView: View {
                 
                 Group {
                     try! QRCodeView(title: "Automatic mask.", segments: Segment.makeSegments(text: "https://www.nayuki.io/"), caption: "https://www.nayuki.io/", correctionLevel: .high, mask: -1)
-                    try! QRCodeView(title: "Force mask 3.", segments: Segment.makeSegments(text: "https://www.nayuki.io/"), caption: "https://www.nayuki.io/ mask 3", correctionLevel: .high, mask: 3)
+                    try! QRCodeView(title: "Force mask 3.", segments: Segment.makeSegments(text: "https://www.nayuki.io/"), caption: "https://www.nayuki.io/", correctionLevel: .high, mask: 3)
                 }
                 
                 Group {
-                    try! QRCodeView(title: "Chinese test, mask 0", segments: Segment.makeSegments(text: chineseString), caption: chineseString + " mask 0", correctionLevel: .medium, mask: 0)
-                    try! QRCodeView(title: "Chinese test, mask 1", segments: Segment.makeSegments(text: chineseString), caption: chineseString + " mask 1", correctionLevel: .medium, mask: 1)
-                    try! QRCodeView(title: "Chinese test, mask 5", segments: Segment.makeSegments(text: chineseString), caption: chineseString + " mask 5", correctionLevel: .medium, mask: 5)
-                    try! QRCodeView(title: "Chinese test, mask 7", segments: Segment.makeSegments(text: chineseString), caption: chineseString + " mask 7", correctionLevel: .medium, mask: 7)
+                    try! QRCodeView(title: "Chinese test, mask 0", segments: Segment.makeSegments(text: chineseString), caption: chineseString, correctionLevel: .medium, mask: 0)
+                    try! QRCodeView(title: "Chinese test, mask 1", segments: Segment.makeSegments(text: chineseString), caption: chineseString, correctionLevel: .medium, mask: 1)
+                    try! QRCodeView(title: "Chinese test, mask 5", segments: Segment.makeSegments(text: chineseString), caption: chineseString, correctionLevel: .medium, mask: 5)
+                    try! QRCodeView(title: "Chinese test, mask 7", segments: Segment.makeSegments(text: chineseString), caption: chineseString, correctionLevel: .medium, mask: 7)
                 }
                 
                 Group {

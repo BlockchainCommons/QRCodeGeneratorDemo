@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,15 +11,18 @@
 		79603B3926AAADD200A9236E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79603B3826AAADD200A9236E /* ContentView.swift */; };
 		79603B3B26AAADD400A9236E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79603B3A26AAADD400A9236E /* Assets.xcassets */; };
 		79603B3E26AAADD400A9236E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79603B3D26AAADD400A9236E /* Preview Assets.xcassets */; };
+		79603B4726AAAE1600A9236E /* QRCodeGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = 79603B4626AAAE1600A9236E /* QRCodeGenerator */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7950527726ABE41700C3B7F2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		79603B3326AAADD200A9236E /* QRCodeGeneratorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeGeneratorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79603B3626AAADD200A9236E /* QRCodeGeneratorDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGeneratorDemoApp.swift; sourceTree = "<group>"; };
 		79603B3826AAADD200A9236E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		79603B3A26AAADD400A9236E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79603B3D26AAADD400A9236E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		79603B3F26AAADD400A9236E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79603B4826ABDBC100A9236E /* QRCodeGeneratorDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QRCodeGeneratorDemo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79603B4726AAAE1600A9236E /* QRCodeGenerator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +40,7 @@
 		79603B2A26AAADD200A9236E = {
 			isa = PBXGroup;
 			children = (
+				7950527726ABE41700C3B7F2 /* README.md */,
 				79603B3526AAADD200A9236E /* QRCodeGeneratorDemo */,
 				79603B3426AAADD200A9236E /* Products */,
 			);
@@ -52,6 +57,7 @@
 		79603B3526AAADD200A9236E /* QRCodeGeneratorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				79603B4826ABDBC100A9236E /* QRCodeGeneratorDemo.entitlements */,
 				79603B3626AAADD200A9236E /* QRCodeGeneratorDemoApp.swift */,
 				79603B3826AAADD200A9236E /* ContentView.swift */,
 				79603B3A26AAADD400A9236E /* Assets.xcassets */,
@@ -85,6 +91,9 @@
 			dependencies = (
 			);
 			name = QRCodeGeneratorDemo;
+			packageProductDependencies = (
+				79603B4626AAAE1600A9236E /* QRCodeGenerator */,
+			);
 			productName = QRCodeGeneratorDemo;
 			productReference = 79603B3326AAADD200A9236E /* QRCodeGeneratorDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +121,9 @@
 				Base,
 			);
 			mainGroup = 79603B2A26AAADD200A9236E;
+			packageReferences = (
+				79603B4526AAAE1600A9236E /* XCRemoteSwiftPackageReference "QRCodeGenerator" */,
+			);
 			productRefGroup = 79603B3426AAADD200A9236E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -267,6 +279,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QRCodeGeneratorDemo/QRCodeGeneratorDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"QRCodeGeneratorDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = YZHG975W3A;
@@ -279,6 +292,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = blockchaincommons.QRCodeGeneratorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,6 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QRCodeGeneratorDemo/QRCodeGeneratorDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"QRCodeGeneratorDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = YZHG975W3A;
@@ -301,6 +316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = blockchaincommons.QRCodeGeneratorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -328,6 +344,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79603B4526AAAE1600A9236E /* XCRemoteSwiftPackageReference "QRCodeGenerator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BlockchainCommons/QRCodeGenerator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79603B4626AAAE1600A9236E /* QRCodeGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79603B4526AAAE1600A9236E /* XCRemoteSwiftPackageReference "QRCodeGenerator" */;
+			productName = QRCodeGenerator;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79603B2B26AAADD200A9236E /* Project object */;
 }

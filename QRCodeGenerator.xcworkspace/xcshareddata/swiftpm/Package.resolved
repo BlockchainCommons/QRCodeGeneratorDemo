@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "QRCodeGenerator",
+        "repositoryURL": "https://github.com/BlockchainCommons/QRCodeGenerator.git",
+        "state": {
+          "branch": null,
+          "revision": "967cf1a6b73d8bdc73515483ab2509493b025653",
+          "version": "0.1.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

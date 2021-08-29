@@ -16,7 +16,7 @@ struct QRCodeView: View {
     let foregroundColor: UIColor
     let backgroundColor: UIColor
     
-    init(title: String, text: String, correctionLevel: CorrectionLevel = .medium, mask: Int = -1, border: Int = 1, foregroundColor: UIColor = .black, backgroundColor: UIColor = .white) {
+    init(title: String, text: String, correctionLevel: CorrectionLevel = .medium, mask: Int? = nil, border: Int = 1, foregroundColor: UIColor = .black, backgroundColor: UIColor = .white) {
         self.title = title
         self.qrCode = try! QRCode.encode(text: text, correctionLevel: correctionLevel, mask: mask)
         self.caption = text
@@ -25,7 +25,7 @@ struct QRCodeView: View {
         self.backgroundColor = backgroundColor
     }
     
-    init(title: String, utf8Bytes: [UInt8], correctionLevel: CorrectionLevel = .medium, mask: Int = -1, border: Int = 1, foregroundColor: UIColor = .black, backgroundColor: UIColor = .white) {
+    init(title: String, utf8Bytes: [UInt8], correctionLevel: CorrectionLevel = .medium, mask: Int? = nil, border: Int = 1, foregroundColor: UIColor = .black, backgroundColor: UIColor = .white) {
         self.title = title
         let text = String(data: Data(utf8Bytes), encoding: .utf8)!
         self.qrCode = try! QRCode.encode(text: text, correctionLevel: correctionLevel, mask: mask)
@@ -35,7 +35,7 @@ struct QRCodeView: View {
         self.backgroundColor = backgroundColor
     }
     
-    init(title: String, segments: [Segment], caption: String, correctionLevel: CorrectionLevel = .medium, mask: Int = -1, border: Int = 1, foregroundColor: UIColor = .black, backgroundColor: UIColor = .white) {
+    init(title: String, segments: [Segment], caption: String, correctionLevel: CorrectionLevel = .medium, mask: Int? = nil, border: Int = 1, foregroundColor: UIColor = .black, backgroundColor: UIColor = .white) {
         self.title = title
         self.qrCode = try! QRCode.encode(segments: segments, correctionLevel: correctionLevel, mask: mask)
         self.caption = caption
@@ -77,9 +77,9 @@ struct ContentView: View {
     let silver0 = "THE SQUARE ROOT OF 2 IS 1."
     let silver1 = "41421356237309504880168872420969807856967187537694807317667973799"
 
-    let golden0 = "Golden ratio φ = 1.";
-    let golden1 = "6180339887498948482045868343656381177203091798057628621354486227052604628189024497072072041893911374";
-    let golden2 = "......";
+    let golden0 = "Golden ratio φ = 1."
+    let golden1 = "6180339887498948482045868343656381177203091798057628621354486227052604628189024497072072041893911374"
+    let golden2 = "......"
 
     // Illustration "Madoka": kanji, kana, Cyrillic, full-width Latin, Greek characters
     // 「魔法少女まどか☆マギカ」って、　ИАИ　ｄｅｓｕ　κα？
@@ -132,14 +132,14 @@ struct ContentView: View {
 
                 Group {
                     // Illustration "silver"
-                    QRCodeView(title: "Arbitrary text must be encoded in binary mode.", text: silver0 + silver1, correctionLevel: .low)
+                    QRCodeView(title: "Arbitrary text encoded in binary mode.", text: silver0 + silver1, correctionLevel: .low)
                     try! QRCodeView(title: "Same text, encoded as an alphanumeric segment and a numeric segment.", segments: [
                         Segment.makeAlphanumeric(text: silver0),
                         Segment.makeNumeric(digits: silver1)
                     ], caption: silver0 + silver1, correctionLevel: .low)
 
                     // Illustration "golden"
-                    QRCodeView(title: "Arbitrary text must be encoded in binary mode.", text: golden0 + golden1 + golden2, correctionLevel: .low)
+                    QRCodeView(title: "Arbitrary text encoded in binary mode.", text: golden0 + golden1 + golden2, correctionLevel: .low)
                     try! QRCodeView(title: "Same text, encoded as three segments: binary, then numeric, then alphanumeric.", segments: [
                         Segment.makeBytes(data: golden0),
                         Segment.makeNumeric(digits: golden1),
@@ -156,7 +156,7 @@ struct ContentView: View {
                 }
                 
                 Group {
-                    try! QRCodeView(title: "Automatic mask.", segments: Segment.makeSegments(text: "https://www.nayuki.io/"), caption: "https://www.nayuki.io/", correctionLevel: .high, mask: -1)
+                    try! QRCodeView(title: "Automatic mask.", segments: Segment.makeSegments(text: "https://www.nayuki.io/"), caption: "https://www.nayuki.io/", correctionLevel: .high, mask: nil)
                     try! QRCodeView(title: "Force mask 3.", segments: Segment.makeSegments(text: "https://www.nayuki.io/"), caption: "https://www.nayuki.io/", correctionLevel: .high, mask: 3)
                 }
                 
@@ -165,6 +165,7 @@ struct ContentView: View {
                     try! QRCodeView(title: "Chinese test, mask 1", segments: Segment.makeSegments(text: chineseString), caption: chineseString, correctionLevel: .medium, mask: 1)
                     try! QRCodeView(title: "Chinese test, mask 5", segments: Segment.makeSegments(text: chineseString), caption: chineseString, correctionLevel: .medium, mask: 5)
                     try! QRCodeView(title: "Chinese test, mask 7", segments: Segment.makeSegments(text: chineseString), caption: chineseString, correctionLevel: .medium, mask: 7)
+                    try! QRCodeView(title: "Chinese test, automatic mask, optimal encoding", segments: Segment.makeSegmentsOptimally(text: chineseString), caption: chineseString, correctionLevel: .medium)
                 }
                 
                 Group {
@@ -173,10 +174,12 @@ struct ContentView: View {
                     
                     QRCodeView(title: "Simulated Smart Health Card, encoded in a single binary segment.", text: part1 + part2)
                     
-                    try! QRCodeView(title: "Simulated Smart Health Card, encoded as a binary segment for header, and numeric segment for body.", segments: [
+                    try! QRCodeView(title: "Simulated Smart Health Card, manually encoded as a binary segment for header, and numeric segment for body.", segments: [
                         Segment.makeBytes(data: part1),
                         Segment.makeNumeric(digits: part2)
                     ], caption: part1 + part2)
+
+                    try! QRCodeView(title: "Simulated Smart Health Card, automatically encoded using optimal encoding.", segments: Segment.makeSegmentsOptimally(text: part1 + part2), caption: part1 + part2)
                 }
             }
         }

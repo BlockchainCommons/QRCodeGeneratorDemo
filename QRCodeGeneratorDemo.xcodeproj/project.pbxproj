@@ -351,7 +351,7 @@
 			repositoryURL = "https://github.com/BlockchainCommons/QRCodeGenerator.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

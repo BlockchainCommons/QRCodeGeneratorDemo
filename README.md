@@ -2,6 +2,10 @@
 
 ### by Wolf McNally
 
+**NOTE:** This repo is now deprecated. The QRCodeGeneratorDemo has been moved into the [BlockchainCommons/QRCodeGenerator](https://github.com/BlockchainCommons/QRCodeGenerator) repo.
+
+---
+
 QRCodeGeneratorDemo is a SwiftUI-based iOS app that demonstrates the [Blockchain Commons QRCodeGenerator Swift package](https://github.com/BlockchainCommons/QRCodeGenerator). It displays a simple scrolling list of generated QR codes, many of which show the multi-segment encoding features it enables.
 
 ![Screenshot 1](Docs/screenshot-1.png)
